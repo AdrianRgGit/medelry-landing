@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "MedievalSharp";
+  src: url("/fonts/medieval-sharp/MedievalSharp-Regular.woff2")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PistonBlack";
+  src: url("/fonts/piston-black/PistonBlack-Regular.woff2") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --medieval-sharp: "MedievalSharp", "sans-serif", "system-ui";
+  --piston-black: "PistonBlack", "sans-serif", "system-ui";
+
+  --background: #e8dcb2;
+
+  --theme-black: #202020;
+  --theme-white: #f7faff;
+
+  --theme-red: #86290b;
+  --theme-green: #53500f;
+  --theme-brown: #ad6a2b;
+
+  --font-black: #202020;
+  --font-white: #f7faff;
+
+  --font-red: #86290b;
+  --font-green: #53500f;
+  --font-brown: #ad6a2b;
+
+  --error: #e62727;
+  --success: #8aa624;
+}
+
+@theme inline {
+  --font-medieval-sharp: var(--medieval-sharp);
+  --font-piston-black: var(--piston-black);
+
+  --color-backround: var(--backround);
+
+  --color-theme-black: var(--theme-black);
+  --color-theme-white: var(--theme-white);
+
+  --color-theme-red: var(--theme-red);
+  --color-theme-green: var(--theme-green);
+  --color-theme-brown: var(--theme-brown);
+
+  --color-font-black: var(--font-black);
+  --color-font-white: var(--font-white);
+
+  --color-font-red: var(--font-red);
+  --color-font-green: var(--font-green);
+  --color-font-brown: var(--font-brown);
+
+  --color-error: var(--error);
+  --color-success: var(--success);
+}
+
+body {
+  font-family: var(--medieval-sharp), sans-serif;
+  background-color: var(--background);
+  color: var(--font-black);
+}
+
+section,
+.padding-container {
+  padding: 20px;
+}

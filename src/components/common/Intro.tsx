@@ -84,3 +84,16 @@ export default function Intro() {
     </div>
   );
 }
+
+    // <div
+    //   ref={container}
+    //   className="relative z-100 h-svh overflow-hidden will-change-[height]"
+    //   aria-label="Medelry intro"
+    // >
+    //   <img
+    //     ref={panel}
+    //     src="/media/intro/background.webp"
+    //     alt="imagen de fondo."
+    //     className="h-svh w-full"
+    //   />
+    // </div>;

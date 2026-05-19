@@ -126,7 +126,7 @@ export default function Nav() {
         aria-expanded={isOpen}
         aria-label={isOpen ? "Plegar navegacion" : "Desplegar navegacion"}
         onClick={() => setIsOpen((v) => !v)}
-        className="absolute right-0 top-1 grid h-16 w-16 cursor-pointer place-items-center rounded-full bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-brown active:translate-y-0.5"
+        className="absolute -right-[1px] top-1 grid h-18 w-18 cursor-pointer place-items-center rounded-full p-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-brown active:translate-y-0.5"
         style={{ opacity: 0.5, scale: "0.5" }}
       >
         <span aria-hidden="true" className="relative block h-14 w-14">
@@ -135,7 +135,7 @@ export default function Nav() {
             src={swordUrl.src}
             alt=""
             draggable={false}
-            className="absolute left-1/2 top-1/2 h-14 w-14 max-w-none select-none"
+            className="absolute left-1/2 top-1/2 h-16 w-16 max-w-none select-none"
             style={{ xPercent: -70, yPercent: -50 } as React.CSSProperties}
           />
           <img
@@ -143,7 +143,7 @@ export default function Nav() {
             src={swordUrl.src}
             alt=""
             draggable={false}
-            className="absolute left-1/2 top-1/2 h-14 w-14 max-w-none select-none"
+            className="absolute left-1/2 top-1/2 h-16 w-16 max-w-none select-none"
             style={{ xPercent: -30, yPercent: -50 } as React.CSSProperties}
           />
         </span>

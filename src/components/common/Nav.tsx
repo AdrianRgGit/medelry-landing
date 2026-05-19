@@ -131,24 +131,29 @@ export default function Nav() {
   };
 
   return (
-    <div ref={containerRef} className="fixed left-5 top-5 z-50">
-      <div className="relative w-50">
-        <img
-          data-frame
-          src="/media/nav/frame.webp"
-          alt=""
-          aria-hidden="true"
-          className="h-75 w-50 select-none"
-          style={{ opacity: 0.5 }}
-          draggable={false}
-        />
+    <div
+      ref={containerRef}
+      className="fixed left-2 top-2 z-50 sm:left-4 sm:top-4 lg:left-5 lg:top-5"
+    >
+      <div className="relative w-32 sm:w-40 lg:w-50">
+        <picture>
+          <source media="(min-width: 1024px)" srcSet="/media/nav/frame.webp" />
+          <img
+            data-frame
+            src="/media/nav/frame-sm.webp"
+            alt="Marco decorativo para la navegacion."
+            aria-hidden="true"
+            style={{ opacity: 0.5 }}
+            draggable={false}
+          />
+        </picture>
 
         <nav
           ref={navRef}
           id="main-nav"
           aria-label="Navegacion principal"
           aria-hidden={!isOpen}
-          className="absolute left-18 top-18 origin-top overflow-hidden"
+          className="absolute left-11 top-11 origin-top overflow-hidden sm:left-14 sm:top-14 lg:left-18 lg:top-18"
           style={{
             clipPath: "inset(0% 0% 100% 0%)",
             opacity: 0,
@@ -164,8 +169,10 @@ export default function Nav() {
                 aria-current={activeSection === item.id ? "true" : undefined}
                 onClick={(event) => handleNavClick(event, item.id)}
                 tabIndex={isOpen ? 0 : -1}
-                className={`text-base leading-tight hover:text-font-red focus-visible:text-font-red focus-visible:outline-none ${
-                  activeSection === item.id ? "text-font-red" : "text-font-black"
+                className={`text-xs leading-tight hover:text-font-red focus-visible:text-font-red focus-visible:outline-none sm:text-sm lg:text-base ${
+                  activeSection === item.id
+                    ? "text-font-red"
+                    : "text-font-black"
                 }`}
                 style={{ opacity: 0 }}
               >
@@ -183,24 +190,27 @@ export default function Nav() {
         aria-expanded={isOpen}
         aria-label={isOpen ? "Plegar navegacion" : "Desplegar navegacion"}
         onClick={() => setIsOpen((v) => !v)}
-        className="absolute -right-px top-1 grid h-18 w-18 cursor-pointer place-items-center rounded-full p-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-brown active:translate-y-0.5"
+        className="absolute -right-px top-0 grid h-12 w-12 cursor-pointer place-items-center rounded-full p-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-brown active:translate-y-0.5 sm:h-14 sm:w-14 lg:top-1 lg:h-18 lg:w-18"
         style={{ opacity: 0.5, scale: "0.5" }}
       >
-        <span aria-hidden="true" className="relative block h-14 w-14">
+        <span
+          aria-hidden="true"
+          className="relative block h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+        >
           <img
             ref={sword1Ref}
             src="/src/assets/sword.svg"
-            alt=""
+            alt="Icono de espada"
             draggable={false}
-            className="absolute left-1/2 top-1/2 h-16 w-16 max-w-none select-none"
+            className="absolute left-1/2 top-1/2 h-11 w-11 max-w-none select-none sm:h-13 sm:w-13 lg:h-16 lg:w-16"
             style={{ xPercent: -70, yPercent: -50 } as React.CSSProperties}
           />
           <img
             ref={sword2Ref}
             src="/src/assets/sword.svg"
-            alt=""
+            alt="Icono de espada."
             draggable={false}
-            className="absolute left-1/2 top-1/2 h-16 w-16 max-w-none select-none"
+            className="absolute left-1/2 top-1/2 h-11 w-11 max-w-none select-none sm:h-13 sm:w-13 lg:h-16 lg:w-16"
             style={{ xPercent: -30, yPercent: -50 } as React.CSSProperties}
           />
         </span>

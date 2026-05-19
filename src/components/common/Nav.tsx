@@ -25,52 +25,64 @@ export default function Nav() {
 
   useGSAP(
     () => {
-      const o = isOpen;
+      const animateNav = () => {
+        const o = isOpen;
+        const isCompactViewport = window.matchMedia(
+          "(max-width: 1023px)",
+        ).matches;
 
-      gsap.to("[data-frame]", {
-        opacity: o ? 1 : 0.5,
-        duration: 0.35,
-        ease: "power2.out",
-      });
+        gsap.to("[data-frame]", {
+          opacity: o ? 1 : isCompactViewport ? 0 : 0.5,
+          duration: 0.35,
+          ease: "power2.out",
+        });
 
-      gsap.to(buttonRef.current, {
-        opacity: o ? 1 : 0.5,
-        scale: o ? 1 : 0.5,
-        duration: 0.35,
-        ease: "power2.out",
-      });
+        gsap.to(buttonRef.current, {
+          opacity: o ? 1 : 0.5,
+          scale: o ? 1 : 0.5,
+          duration: 0.35,
+          ease: "power2.out",
+        });
 
-      gsap.to(navRef.current, {
-        clipPath: o ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
-        opacity: o ? 1 : 0,
-        pointerEvents: o ? "auto" : "none",
-        duration: o ? 0.65 : 0.45,
-        ease: o ? "power2.out" : "power2.inOut",
-      });
+        gsap.to(navRef.current, {
+          clipPath: o ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
+          opacity: o ? 1 : 0,
+          pointerEvents: o ? "auto" : "none",
+          duration: o ? 0.65 : 0.45,
+          ease: o ? "power2.out" : "power2.inOut",
+        });
 
-      gsap.to("[data-link]", {
-        opacity: o ? 1 : 0,
-        duration: o ? 0.28 : 0.12,
-        ease: "power2.out",
-        stagger: o ? 0.035 : 0,
-      });
+        gsap.to("[data-link]", {
+          opacity: o ? 1 : 0,
+          duration: o ? 0.28 : 0.12,
+          ease: "power2.out",
+          stagger: o ? 0.035 : 0,
+        });
 
-      gsap.to(sword1Ref.current, {
-        scale: o ? 0.75 : 1,
-        xPercent: o ? -50 : -70,
-        yPercent: -50,
-        rotate: o ? 45 : 0,
-        duration: 0.35,
-        ease: "power2.out",
-      });
-      gsap.to(sword2Ref.current, {
-        scale: o ? 0.75 : 1,
-        xPercent: o ? -50 : -30,
-        yPercent: -50,
-        rotate: o ? -45 : 0,
-        duration: 0.35,
-        ease: "power2.out",
-      });
+        gsap.to(sword1Ref.current, {
+          scale: o ? 0.75 : 1,
+          xPercent: o ? -50 : -70,
+          yPercent: -50,
+          rotate: o ? 45 : 0,
+          duration: 0.35,
+          ease: "power2.out",
+        });
+        gsap.to(sword2Ref.current, {
+          scale: o ? 0.75 : 1,
+          xPercent: o ? -50 : -30,
+          yPercent: -50,
+          rotate: o ? -45 : 0,
+          duration: 0.35,
+          ease: "power2.out",
+        });
+      };
+
+      animateNav();
+      window.addEventListener("resize", animateNav);
+
+      return () => {
+        window.removeEventListener("resize", animateNav);
+      };
     },
     { scope: containerRef, dependencies: [isOpen] },
   );
@@ -143,7 +155,7 @@ export default function Nav() {
             src="/media/nav/frame-sm.webp"
             alt="Marco decorativo para la navegacion."
             aria-hidden="true"
-            style={{ opacity: 0.5 }}
+            className="opacity-0 lg:opacity-50"
             draggable={false}
           />
         </picture>

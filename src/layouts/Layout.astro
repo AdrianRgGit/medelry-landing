@@ -1,5 +1,6 @@
 ---
 import Intro from "../components/common/Intro";
+import MuteButton from "../components/common/MuteButton";
 import Nav from "../components/common/Nav";
 import "../styles/global.css";
 ---
@@ -15,10 +16,11 @@ import "../styles/global.css";
     <title>Medelry</title>
   </head>
 
-  <body class="bg-backround">
+  <body class="relative bg-backround">
     <!-- <Intro client:load /> -->
 
     <Nav client:load />
+    <MuteButton client:load />
     <slot />
   </body>
 </html>

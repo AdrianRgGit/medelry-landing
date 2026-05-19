@@ -43,7 +43,7 @@ export default function Nav() {
           className={`absolute left-18 top-18 origin-top overflow-hidden transition-[clip-path,opacity,transform] motion-reduce:transition-none ${
             isOpen
               ? "pointer-events-auto translate-y-0 opacity-100 duration-650 ease-out [clip-path:inset(0%_0%_0%_0%)]"
-              : "pointer-events-none -translate-y-2 opacity-0 duration-450 ease-in-out [clip-path:inset(0%_0%_100%_0%)]"
+              : "pointer-events-none opacity-0 duration-450 ease-in-out [clip-path:inset(0%_0%_100%_0%)]"
           }`}
         >
           <div className="flex flex-col gap-1">

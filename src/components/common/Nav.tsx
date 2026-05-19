@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import swordUrl from "../../assets/sword.svg";
 
 const navItems = [
   "I. Intro",
@@ -60,6 +59,7 @@ export default function Nav() {
 
       // Espadas
       gsap.to(sword1Ref.current, {
+        scale: o ? 0.75 : 1,
         xPercent: o ? -50 : -70,
         yPercent: -50,
         rotate: o ? 45 : 0,
@@ -67,6 +67,7 @@ export default function Nav() {
         ease: "power2.out",
       });
       gsap.to(sword2Ref.current, {
+        scale: o ? 0.75 : 1,
         xPercent: o ? -50 : -30,
         yPercent: -50,
         rotate: o ? -45 : 0,
@@ -132,7 +133,7 @@ export default function Nav() {
         <span aria-hidden="true" className="relative block h-14 w-14">
           <img
             ref={sword1Ref}
-            src={swordUrl.src}
+            src="/src/assets/sword.svg"
             alt=""
             draggable={false}
             className="absolute left-1/2 top-1/2 h-16 w-16 max-w-none select-none"
@@ -140,7 +141,7 @@ export default function Nav() {
           />
           <img
             ref={sword2Ref}
-            src={swordUrl.src}
+            src="/src/assets/sword.svg"
             alt=""
             draggable={false}
             className="absolute left-1/2 top-1/2 h-16 w-16 max-w-none select-none"

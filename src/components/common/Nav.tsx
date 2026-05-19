@@ -127,7 +127,7 @@ export default function Nav() {
         aria-expanded={isOpen}
         aria-label={isOpen ? "Plegar navegacion" : "Desplegar navegacion"}
         onClick={() => setIsOpen((v) => !v)}
-        className="absolute -right-[1px] top-1 grid h-18 w-18 cursor-pointer place-items-center rounded-full p-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-brown active:translate-y-0.5"
+        className="absolute -right-px top-1 grid h-18 w-18 cursor-pointer place-items-center rounded-full p-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-brown active:translate-y-0.5"
         style={{ opacity: 0.5, scale: "0.5" }}
       >
         <span aria-hidden="true" className="relative block h-14 w-14">

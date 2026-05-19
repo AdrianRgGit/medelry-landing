@@ -7,7 +7,34 @@ export default function Nav() {
         className="h-[300px] w-[200px]"
       />
 
-      <button type="button" className="w-[50px] h-[50px] absolute top-[15px] right-2.5 bg-theme-red rounded-full cursor-pointer"></button>
+      <button
+        type="button"
+        className="w-[50px] h-[50px] absolute top-[15px] right-2.5 bg-theme-red rounded-full cursor-pointer"
+      ></button>
+
+      <nav className="absolute top-18 left-18 flex flex-col">
+        <a href="#" className="">
+          I. Intro
+        </a>
+        <a href="#" className="">
+          I. Intro
+        </a>
+        <a href="#" className="">
+          I. Intro
+        </a>
+        <a href="#" className="">
+          I. Intro
+        </a>
+        <a href="#" className="">
+          I. Intro
+        </a>
+        <a href="#" className="">
+          I. Intro
+        </a>
+        <a href="#" className="">
+          I. Intro
+        </a>
+      </nav>
     </div>
   );
 }

@@ -1,19 +1,21 @@
-import { useState, useRef } from "react";
+import type { MouseEvent } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const navItems = [
-  "I. Intro",
-  "II. Coleccion",
-  "III. Joyas",
-  "IV. Reliquias",
-  "V. Encargos",
-  "VI. Historia",
-  "VII. Contacto",
+  { label: "I. Intro", id: "intro" },
+  { label: "II. Historia", id: "history" },
+  { label: "III. Colecci\u00f3n", id: "collection" },
+  { label: "IV. Filosof\u00eda", id: "philosophy" },
+  { label: "V. Para qui\u00e9n", id: "audience" },
+  { label: "VI. Valores", id: "values" },
+  { label: "VII. Cierre", id: "closing" },
 ];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(navItems[0].id);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -25,14 +27,12 @@ export default function Nav() {
     () => {
       const o = isOpen;
 
-      // Frame: solo opacidad, sin scale
       gsap.to("[data-frame]", {
         opacity: o ? 1 : 0.5,
         duration: 0.35,
         ease: "power2.out",
       });
 
-      // Botón: opacidad + scale
       gsap.to(buttonRef.current, {
         opacity: o ? 1 : 0.5,
         scale: o ? 1 : 0.5,
@@ -40,7 +40,6 @@ export default function Nav() {
         ease: "power2.out",
       });
 
-      // Nav (clip-path)
       gsap.to(navRef.current, {
         clipPath: o ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
         opacity: o ? 1 : 0,
@@ -49,15 +48,13 @@ export default function Nav() {
         ease: o ? "power2.out" : "power2.inOut",
       });
 
-      // Links escalonados
       gsap.to("[data-link]", {
         opacity: o ? 1 : 0,
         duration: o ? 0.28 : 0.12,
         ease: "power2.out",
-        stagger: o ? 0.035 : 0, // ~35 ms entre links al abrir
+        stagger: o ? 0.035 : 0,
       });
 
-      // Espadas
       gsap.to(sword1Ref.current, {
         scale: o ? 0.75 : 1,
         xPercent: o ? -50 : -70,
@@ -77,6 +74,61 @@ export default function Nav() {
     },
     { scope: containerRef, dependencies: [isOpen] },
   );
+
+  useEffect(() => {
+    const syncActiveHash = () => {
+      const sectionId = window.location.hash.replace("#", "");
+
+      if (navItems.some((item) => item.id === sectionId)) {
+        setActiveSection(sectionId);
+      }
+    };
+
+    syncActiveHash();
+
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const activeEntry = entries.find((entry) => entry.isIntersecting);
+
+        if (activeEntry?.target.id) {
+          setActiveSection(activeEntry.target.id);
+        }
+      },
+      {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("hashchange", syncActiveHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", syncActiveHash);
+    };
+  }, []);
+
+  const handleNavClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+      return;
+    }
+
+    event.preventDefault();
+    setActiveSection(sectionId);
+    setIsOpen(false);
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.pushState(null, "", `#${sectionId}`);
+  };
 
   return (
     <div ref={containerRef} className="fixed left-5 top-5 z-50">
@@ -106,14 +158,18 @@ export default function Nav() {
           <div className="flex flex-col gap-1">
             {navItems.map((item) => (
               <a
-                key={item}
+                key={item.id}
                 data-link
-                href="#"
+                href={`#${item.id}`}
+                aria-current={activeSection === item.id ? "true" : undefined}
+                onClick={(event) => handleNavClick(event, item.id)}
                 tabIndex={isOpen ? 0 : -1}
-                className="text-base leading-tight text-font-black hover:text-font-red focus-visible:text-font-red focus-visible:outline-none"
+                className={`text-base leading-tight hover:text-font-red focus-visible:text-font-red focus-visible:outline-none ${
+                  activeSection === item.id ? "text-font-red" : "text-font-black"
+                }`}
                 style={{ opacity: 0 }}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>

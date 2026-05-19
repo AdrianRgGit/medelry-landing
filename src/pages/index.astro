@@ -1,5 +1,11 @@
 ---
-import Hero from "../components/Hero.astro";
+import Audience from "../components/home/audience/Audience.astro";
+import Closing from "../components/home/closing/Closing.astro";
+import Collection from "../components/home/collection/Collection.astro";
+import Hero from "../components/home/hero/Hero.astro";
+import History from "../components/home/history/History.astro";
+import Philosophy from "../components/home/philosophy/Philosophy.astro";
+import Values from "../components/home/values/Values.astro";
 import SectionSnap from "../components/common/SectionSnap";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -9,47 +15,11 @@ import Layout from "../layouts/Layout.astro";
 
   <main data-section-snap>
     <Hero />
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
-
-    <section class="h-svh">
-      <h1 class="text-5xl text-font-red">
-        <span class="text-9xl font-piston-black">M</span>
-      </h1>
-    </section>
+    <History />
+    <Collection />
+    <Philosophy />
+    <Audience />
+    <Values />
+    <Closing />
   </main>
 </Layout>

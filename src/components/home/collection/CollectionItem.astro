@@ -8,7 +8,7 @@ interface Props {
 const { src, alt, size = "100px" } = Astro.props;
 ---
 
-<div class="relative">
+<article class="relative">
   <img
     src="/media/home/item-frame.webp"
     alt="Marco de decoración para el artículo."
@@ -20,4 +20,4 @@ const { src, alt, size = "100px" } = Astro.props;
     style={{ width: size }}
     class="mx-auto absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
   />
-</div>
+</article>

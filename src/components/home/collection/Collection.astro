@@ -1,5 +1,47 @@
-<section id="collection" class="h-svh">
-  <h1 class="text-5xl text-font-red">
-    <span class="text-9xl font-piston-black">M</span>
-  </h1>
+---
+import CollectionItem from "./CollectionItem.astro";
+
+const collectionItems = [
+  {
+    src: "/media/home/ring-img.webp",
+    alt: "Imagen de un anillo.",
+    size: "100px",
+  },
+  {
+    src: "/media/home/gloves-img.webp",
+    alt: "Imagen de unos guantes.",
+    size: "200px",
+  },
+  {
+    src: "/media/home/dress-img.webp",
+    alt: "Imagen de un vestido.",
+    size: "140px",
+  },
+  {
+    src: "/media/home/earrings-img.webp",
+    alt: "Imagen de unos pendientes.",
+    size: "120px",
+  },
+  {
+    src: "/media/home/necklace-img.webp",
+    alt: "Imagen de un collar.",
+    size: "120px",
+  },
+];
+---
+
+<section id="collection" class="h-svh grid grid-cols-2">
+  <p class="text-lg text-font-red col-start-2 px-30">
+    <span class="text-8xl font-piston-black">E</span>ncontrarás joyas, prendas y
+    accesorios de inspiración medieval. Buscamos crear, productos que puedan
+    formar parte de tu forma de vestir.
+  </p>
+
+  <div class="col-span-2 flex justify-evenly">
+    {
+      collectionItems.map((item) => (
+        <CollectionItem src={item.src} alt={item.alt} size={item.size} />
+      ))
+    }
+  </div>
 </section>

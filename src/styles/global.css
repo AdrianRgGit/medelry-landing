@@ -28,14 +28,14 @@
 
   --theme-red: #86290b;
   --theme-green: #53500f;
-  --theme-brown: #ad6a2b;
+  --theme-sand: #e8d798;
 
   --font-black: #202020;
   --font-white: #f7faff;
 
   --font-red: #86290b;
   --font-green: #53500f;
-  --font-brown: #ad6a2b;
+  --font-sand: #e8d798;
 
   --error: #e62727;
   --success: #8aa624;
@@ -52,14 +52,14 @@
 
   --color-theme-red: var(--theme-red);
   --color-theme-green: var(--theme-green);
-  --color-theme-brown: var(--theme-brown);
+  --color-theme-sand: var(--theme-sand);
 
   --color-font-black: var(--font-black);
   --color-font-white: var(--font-white);
 
   --color-font-red: var(--font-red);
   --color-font-green: var(--font-green);
-  --color-font-brown: var(--font-brown);
+  --color-font-sand: var(--font-sand);
 
   --color-error: var(--error);
   --color-success: var(--success);

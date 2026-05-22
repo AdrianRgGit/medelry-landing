@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  src: string;
+  alt: string;
+}
+
+const { title, src, alt } = Astro.props;
+
+const cleanTitle = title.trim();
+const letters = Array.from(cleanTitle);
+
+const firstLetter = letters[0] ?? "";
+const restTitle = letters.slice(1).join("");
+---
+
+<article class="relative w-full h-60 overflow-hidden">
+  <img
+    src={src}
+    alt={alt}
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+
+  <div class="absolute inset-0 bg-theme-black/35"></div>
+
+  <p class="absolute top-2.5 left-5 z-10 text-font-red">
+    <span class="text-6xl font-piston-black">{firstLetter}</span>{restTitle}
+  </p>
+</article>

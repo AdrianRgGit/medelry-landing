@@ -1,19 +1,26 @@
 ---
+import Intro from "../components/common/Intro";
+import MuteButton from "../components/common/MuteButton";
+import Nav from "../components/common/Nav";
 import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Medelry</title>
   </head>
 
-  <body class="bg-backround">
+  <body class="relative bg-backround">
+    <Intro client:load />
+
+    <Nav client:load />
+    <MuteButton client:load />
     <slot />
   </body>
 </html>

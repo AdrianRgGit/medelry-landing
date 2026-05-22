@@ -1,8 +1,25 @@
 ---
-import Intro from "../components/Intro.astro";
+import Audience from "../components/home/audience/Audience.astro";
+import Closing from "../components/home/closing/Closing.astro";
+import Collection from "../components/home/collection/Collection.astro";
+import Hero from "../components/home/hero/Hero.astro";
+import History from "../components/home/history/History.astro";
+import Philosophy from "../components/home/philosophy/Philosophy.astro";
+import Values from "../components/home/values/Values.astro";
+import SectionSnap from "../components/common/SectionSnap";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <Intro />
+  <SectionSnap client:idle />
+
+  <main data-section-snap>
+    <Hero />
+    <History />
+    <Collection />
+    <Philosophy />
+    <Audience />
+    <Values />
+    <Closing />
+  </main>
 </Layout>

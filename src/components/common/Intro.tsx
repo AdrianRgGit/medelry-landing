@@ -8,56 +8,56 @@ export default function Intro() {
   const container = useRef<HTMLElement>(null);
   const panel = useRef<HTMLDivElement>(null);
 
-  // useGSAP(
-  //   () => {
-  //     const originalBodyOverflow = document.body.style.overflow;
-  //     const originalHtmlOverflow = document.documentElement.style.overflow;
-  //     const reduceMotion = window.matchMedia(
-  //       "(prefers-reduced-motion: reduce)",
-  //     ).matches;
+  useGSAP(
+    () => {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
 
-  //     document.body.style.overflow = "hidden";
-  //     document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
 
-  //     const restoreScroll = () => {
-  //       document.body.style.overflow = originalBodyOverflow;
-  //       document.documentElement.style.overflow = originalHtmlOverflow;
-  //     };
+      const restoreScroll = () => {
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+      };
 
-  //     if (reduceMotion) {
-  //       gsap.set(container.current, { height: 0 });
-  //       gsap.set(panel.current, { yPercent: -100 });
-  //       restoreScroll();
-  //       return;
-  //     }
+      if (reduceMotion) {
+        gsap.set(container.current, { height: 0 });
+        gsap.set(panel.current, { yPercent: -100 });
+        restoreScroll();
+        return;
+      }
 
-  //     const tl = gsap.timeline({ delay: 5, onComplete: restoreScroll });
+      const tl = gsap.timeline({ delay: 5, onComplete: restoreScroll });
 
-  //     tl.to(
-  //       panel.current,
-  //       {
-  //         yPercent: -100,
-  //         duration: 1.1,
-  //         ease: "power4.inOut",
-  //       },
-  //       0,
-  //     ).to(
-  //       container.current,
-  //       {
-  //         height: 0,
-  //         duration: 1.1,
-  //         ease: "power4.inOut",
-  //       },
-  //       0,
-  //     );
+      tl.to(
+        panel.current,
+        {
+          yPercent: -100,
+          duration: 1.1,
+          ease: "power4.inOut",
+        },
+        0,
+      ).to(
+        container.current,
+        {
+          height: 0,
+          duration: 1.1,
+          ease: "power4.inOut",
+        },
+        0,
+      );
 
-  //     return () => {
-  //       tl.kill();
-  //       restoreScroll();
-  //     };
-  //   },
-  //   { scope: container },
-  // );
+      return () => {
+        tl.kill();
+        restoreScroll();
+      };
+    },
+    { scope: container },
+  );
 
   return (
     <section

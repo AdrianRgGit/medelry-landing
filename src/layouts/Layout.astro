@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/common/Footer.astro";
 import Intro from "../components/common/Intro";
 import MuteButton from "../components/common/MuteButton";
 import Nav from "../components/common/Nav";
@@ -22,5 +23,6 @@ import "../styles/global.css";
     <Nav client:load />
     <MuteButton client:load />
     <slot />
+    <Footer client:load />
   </body>
 </html>

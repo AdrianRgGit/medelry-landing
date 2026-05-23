@@ -74,7 +74,7 @@ export default function MuteButton({
         aria-pressed={!isMuted}
         title={isMuted ? "Activar musica" : "Silenciar musica"}
         onClick={() => setIsMuted((currentValue) => !currentValue)}
-        className="fixed bottom-3 right-3 z-50 grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-theme-red bg-theme-white shadow-[0_4px_0_var(--theme-brown)] transition duration-200 hover:-translate-y-0.5 hover:border-theme-green focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-theme-brown active:translate-y-1 active:shadow-[0_2px_0_var(--theme-brown)] sm:bottom-4 sm:right-4 sm:h-13 sm:w-13 lg:bottom-5 lg:right-5 lg:h-15 lg:w-15 lg:shadow-[0_6px_0_var(--theme-brown)] lg:active:shadow-[0_3px_0_var(--theme-brown)]"
+        className="fixed bottom-3 right-3 z-100 grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-theme-red bg-theme-white shadow-[0_4px_0_var(--theme-brown)] transition duration-200 hover:-translate-y-0.5 hover:border-theme-green focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-theme-brown active:translate-y-1 active:shadow-[0_2px_0_var(--theme-brown)] sm:bottom-4 sm:right-4 sm:h-13 sm:w-13 lg:bottom-5 lg:right-5 lg:h-15 lg:w-15 lg:shadow-[0_6px_0_var(--theme-brown)] lg:active:shadow-[0_3px_0_var(--theme-brown)]"
       >
         <span
           aria-hidden="true"

@@ -62,7 +62,7 @@ export default function Intro() {
   return (
     <section
       ref={container}
-      className="relative z-100 h-svh overflow-hidden p-5 will-change-[height]"
+      className="relative z-90 h-svh overflow-hidden p-5 will-change-[height]"
       aria-label="Medelry intro"
     >
       <div

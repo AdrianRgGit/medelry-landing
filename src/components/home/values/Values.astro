@@ -2,8 +2,17 @@
 import ValuesItem from "./ValuesItem.astro";
 ---
 
-<section id="values" class="h-svh ml-64 grid grid-cols-2 items-center gap-12">
-  <div class="space-y-12">
+<section
+  id="values"
+  class="min-h-svh py-24 grid grid-cols-1 gap-6 items-center
+    md:grid-cols-2 md:gap-8
+    xl:h-svh xl:py-5 xl:ml-64 xl:gap-12"
+>
+  <div
+    class="space-y-6
+      md:space-y-8
+      xl:space-y-12"
+  >
     <ValuesItem
       title="Inspiración medieval"
       src="/media/home/value-img-1.webp"
@@ -16,7 +25,11 @@ import ValuesItem from "./ValuesItem.astro";
     />
   </div>
 
-  <div class="space-y-12">
+  <div
+    class="space-y-6
+      md:space-y-8
+      xl:space-y-12"
+  >
     <ValuesItem
       title="Estilo actual"
       src="/media/home/value-img-3.webp"

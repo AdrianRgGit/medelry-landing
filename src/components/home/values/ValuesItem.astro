@@ -14,14 +14,27 @@ const firstLetter = letters[0] ?? "";
 const restTitle = letters.slice(1).join("");
 ---
 
-<article class="relative w-full h-60 overflow-hidden">
+<article
+  class="w-full h-44 relative overflow-hidden
+    md:h-52
+    xl:h-60"
+>
   <img
     src={src}
     alt={alt}
-    class="absolute inset-0 w-full h-full object-cover"
+    class="w-full h-full absolute inset-0 object-cover"
   />
 
-  <p class="absolute top-2.5 left-5 z-10 text-font-red bg-theme-sand/80 px-4 py-2">
-    <span class="text-6xl font-piston-black">{firstLetter}</span>{restTitle}
+  <p
+    class="px-3 py-1.5 absolute top-2 left-3 z-10 text-sm text-font-red bg-theme-sand/80
+      md:px-4 md:py-2 md:top-2.5 md:left-5 md:text-base
+      xl:text-base"
+  >
+    <span
+      class="text-4xl font-piston-black
+        md:text-5xl
+        xl:text-6xl"
+      >{firstLetter}</span
+    >{restTitle}
   </p>
 </article>
